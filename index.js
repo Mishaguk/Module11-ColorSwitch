@@ -23,6 +23,7 @@ const changeBackgroundColor = (color) => refs.bodyColor.style.backgroundColor = 
 let intervalColorSwitch = undefined;
 
 function start() {
+  if (intervalColorSwitch) return;
   intervalColorSwitch = setInterval(randomNumber => {
     randomNumber = randomIntegerFromInterval(0, 5);
     changeBackgroundColor(colors[randomNumber]);
@@ -32,4 +33,5 @@ function start() {
   
 function stop() {
   clearInterval(intervalColorSwitch);
+  intervalColorSwitch = null;
 }
